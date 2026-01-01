@@ -1,0 +1,348 @@
+{
+  "tokens": {
+    "colors": {
+      "bg_light": "#f6f6f3",
+      "bg_beige": "#e6e2d5",
+      "bg_orange": "#f2551c",
+      "bg_dark": "#111111",
+      "text_dark": "#111111",
+      "text_light": "#f5f3ee",
+      "accent_orange": "#f2551c",
+      "muted": "#6f6a5f"
+    },
+    "fonts": {
+      "family": "system-ui, -apple-system, Segoe UI, Inter, Arial, sans-serif",
+      "headline_weight": 800,
+      "body_weight": 500
+    },
+    "radii": {
+      "pill": 999,
+      "card": 24
+    },
+    "spacing": {
+      "s0": 0,
+      "s1": 8,
+      "s2": 12,
+      "s3": 16,
+      "s4": 24,
+      "s5": 32,
+      "s6": 48,
+      "s7": 64
+    },
+    "typeScale": {
+      "h1": 76,
+      "h2": 56,
+      "body": 20,
+      "small": 14
+    }
+  },
+  "base_css": ".artboard{width:1080px;height:1080px;background:var(--bg);font-family:var(--font-family);color:var(--text);display:flex;align-items:stretch;justify-content:center;box-sizing:border-box;padding:64px}.slide{width:100%;height:100%;box-sizing:border-box;display:grid;grid-template-rows:auto 1fr auto;gap:24px;position:relative;--headline-max-w:820px;--headline-y:0px;--subhead-max-w:680px;--subhead-y:0px;--headline-align:left;--accent-style:ellipse;--cta-text:''}.theme--light{--bg:var(--bg-light);--text:var(--text-dark)}.theme--orange{--bg:var(--bg-orange);--text:var(--text-dark)}.theme--dark{--bg:var(--bg-dark);--text:var(--text-light)}.headline{font-size:clamp(48px,6vw,92px);line-height:0.96;font-weight:var(--headline-weight);letter-spacing:-0.02em;max-width:var(--headline-max-w);text-align:var(--headline-align);margin-top:var(--headline-y)}.subhead{font-size:clamp(18px,2vw,24px);line-height:1.25;color:var(--muted);max-width:var(--subhead-max-w);margin-top:var(--subhead-y)}.pill{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:var(--pill);font-weight:700;font-size:16px;border:2px solid currentColor}.pill--filled{background:var(--text);color:var(--bg)}.pill--outline{background:transparent}.accent{position:relative;display:inline-block;padding:0 8px}.accent--ellipse:after{content:'';position:absolute;left:-6px;right:-6px;top:55%;height:1.1em;border:3px solid var(--accent);border-radius:999px;transform:translateY(-50%) rotate(-5deg)}.accent--underline:after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:6px;background:var(--accent);border-radius:999px}.corner-glyph{position:absolute;font-size:20px;font-weight:700;opacity:0.9}.corner-glyph--tl{top:24px;left:24px}.corner-glyph--tr{top:24px;right:24px}.footer{display:flex;align-items:center;justify-content:space-between;font-size:16px;font-weight:700}.footer .logo{display:flex;align-items:center;gap:10px}.footer .page{font-size:20px}.nextpage{position:absolute;right:48px;bottom:48px;display:flex;align-items:center;gap:10px;font-size:14px;letter-spacing:0.02em}.nextpage .arrow{width:48px;height:28px;border-radius:999px;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center}.card{background:var(--bg-light);border-radius:var(--card);padding:40px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}.badge-row{display:flex;flex-wrap:wrap;gap:12px}.number-giant{font-size:clamp(120px,18vw,320px);font-weight:800;letter-spacing:-0.02em;line-height:0.9}.muted{color:var(--muted)}.photo-circle{width:360px;height:360px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;overflow:hidden}.photo-card{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:center}.diagonal-shape{position:absolute;right:80px;top:80px;width:420px;height:420px;border-radius:50%;background:var(--accent)}.line-frame{border:2px solid currentColor;border-radius:20px;padding:32px}" ,
+  "layout_presets": [
+    {
+      "id": "hero_left",
+      "description": "Light background, large left headline, small paragraph, pill CTA, footer marks.",
+      "template_html": "<div class=\"slide theme--light\" style=\"--headline-max-w:820px;--subhead-max-w:640px;\"><div class=\"corner-glyph corner-glyph--tl\">✳︎</div><div><div class=\"headline\">{{title}}</div><div class=\"subhead\">{{description}}</div><div style=\"margin-top:24px\"><span class=\"pill pill--outline\">{{cta_text}}</span></div></div><div class=\"footer\"><div class=\"logo\"><span style=\"color:var(--accent);font-weight:900\">f</span><span>imberio</span></div><div class=\"page\">{{page_number}}</div></div></div>",
+      "editable_overrides_schema": {
+        "headline_align": {"type": "enum", "values": ["left", "center"]},
+        "headline_max_w": {"type": "number", "min": 300, "max": 1000},
+        "headline_y": {"type": "number", "min": 0, "max": 400},
+        "subhead_max_w": {"type": "number", "min": 240, "max": 1000},
+        "subhead_y": {"type": "number", "min": 0, "max": 900},
+        "accent_style": {"type": "enum", "values": ["ellipse", "underline", "none"]},
+        "accent_word": {"type": "string", "max": 40},
+        "cta_text": {"type": "string", "max": 40},
+        "footer_variant": {"type": "enum", "values": ["logo_left_number_right", "logo_left_nextpage_corner", "minimal_number"]}
+      }
+    },
+    {
+      "id": "orange_badges",
+      "description": "Orange background, centered title, badge pills row, corner micro icons.",
+      "template_html": "<div class=\"slide theme--orange\" style=\"--headline-align:center;--headline-max-w:900px;\"><div class=\"corner-glyph corner-glyph--tl\">• • • • •</div><div class=\"corner-glyph corner-glyph--tr\">@brand</div><div style=\"display:grid;place-items:center;text-align:center;gap:24px\"><div class=\"headline\">{{title}}</div><div class=\"subhead\">{{description}}</div><div class=\"badge-row\"><span class=\"pill pill--outline\">Habit</span><span class=\"pill pill--outline\">Routine</span><span class=\"pill pill--outline\">Mindset</span></div></div><div class=\"footer\"><div class=\"logo\">Small Habits</div><div class=\"page\">{{page_number}}</div></div></div>",
+      "editable_overrides_schema": {
+        "headline_align": {"type": "enum", "values": ["left", "center"]},
+        "headline_max_w": {"type": "number", "min": 300, "max": 1000},
+        "headline_y": {"type": "number", "min": 0, "max": 400},
+        "subhead_max_w": {"type": "number", "min": 240, "max": 1000},
+        "subhead_y": {"type": "number", "min": 0, "max": 900},
+        "accent_style": {"type": "enum", "values": ["ellipse", "underline", "none"]},
+        "accent_word": {"type": "string", "max": 40},
+        "cta_text": {"type": "string", "max": 40},
+        "footer_variant": {"type": "enum", "values": ["logo_left_number_right", "logo_left_nextpage_corner", "minimal_number"]}
+      }
+    },
+    {
+      "id": "dark_center",
+      "description": "Dark background, centered title+paragraph, small next page CTA.",
+      "template_html": "<div class=\"slide theme--dark\" style=\"--headline-align:center;--headline-max-w:880px;\"><div class=\"corner-glyph corner-glyph--tl\" style=\"color:var(--accent)\">✳︎</div><div class=\"corner-glyph corner-glyph--tr\">ɾ</div><div style=\"display:grid;place-items:center;text-align:center;gap:18px\"><div class=\"headline\">{{title}}</div><div class=\"subhead muted\">{{description}}</div></div><div class=\"nextpage\"><div class=\"arrow\">→</div><div>next page</div></div></div>",
+      "editable_overrides_schema": {
+        "headline_align": {"type": "enum", "values": ["left", "center"]},
+        "headline_max_w": {"type": "number", "min": 300, "max": 1000},
+        "headline_y": {"type": "number", "min": 0, "max": 400},
+        "subhead_max_w": {"type": "number", "min": 240, "max": 1000},
+        "subhead_y": {"type": "number", "min": 0, "max": 900},
+        "accent_style": {"type": "enum", "values": ["ellipse", "underline", "none"]},
+        "accent_word": {"type": "string", "max": 40},
+        "cta_text": {"type": "string", "max": 40},
+        "footer_variant": {"type": "enum", "values": ["logo_left_number_right", "logo_left_nextpage_corner", "minimal_number"]}
+      }
+    },
+    {
+      "id": "light_quote_pill",
+      "description": "Light bg, title + quote-like pill, footer icons/bookmark.",
+      "template_html": "<div class=\"slide theme--light\" style=\"--headline-max-w:760px;\"><div><div class=\"headline\">{{title}}</div><div style=\"margin-top:32px;max-width:680px\" class=\"line-frame\"><div class=\"subhead\">{{description}}</div></div></div><div class=\"footer\"><div class=\"pill pill--filled\">Save &amp; Share!</div><div class=\"page\">{{page_number}}</div></div></div>",
+      "editable_overrides_schema": {
+        "headline_align": {"type": "enum", "values": ["left", "center"]},
+        "headline_max_w": {"type": "number", "min": 300, "max": 1000},
+        "headline_y": {"type": "number", "min": 0, "max": 400},
+        "subhead_max_w": {"type": "number", "min": 240, "max": 1000},
+        "subhead_y": {"type": "number", "min": 0, "max": 900},
+        "accent_style": {"type": "enum", "values": ["ellipse", "underline", "none"]},
+        "accent_word": {"type": "string", "max": 40},
+        "cta_text": {"type": "string", "max": 40},
+        "footer_variant": {"type": "enum", "values": ["logo_left_number_right", "logo_left_nextpage_corner", "minimal_number"]}
+      }
+    },
+    {
+      "id": "card_center",
+      "description": "Orange background, big rounded white card with CTA pill + tiny top labels.",
+      "template_html": "<div class=\"slide theme--orange\" style=\"--headline-align:center;\"><div style=\"display:flex;justify-content:space-between;font-size:14px\"><span>Need help?</span><span>Drop us a DM</span></div><div style=\"display:grid;place-items:center\"><div class=\"card\" style=\"max-width:720px;text-align:center\"><div class=\"headline\" style=\"font-size:56px\">{{title}}</div><div class=\"subhead\">{{description}}</div><div style=\"margin-top:20px\"><span class=\"pill pill--outline\">{{cta_text}}</span></div></div></div><div class=\"footer\"><div class=\"corner-glyph\">✳︎</div><div class=\"corner-glyph\" style=\"margin-left:auto\">ɾ</div></div></div>",
+      "editable_overrides_schema": {
+        "headline_align": {"type": "enum", "values": ["left", "center"]},
+        "headline_max_w": {"type": "number", "min": 300, "max": 1000},
+        "headline_y": {"type": "number", "min": 0, "max": 400},
+        "subhead_max_w": {"type": "number", "min": 240, "max": 1000},
+        "subhead_y": {"type": "number", "min": 0, "max": 900},
+        "accent_style": {"type": "enum", "values": ["ellipse", "underline", "none"]},
+        "accent_word": {"type": "string", "max": 40},
+        "cta_text": {"type": "string", "max": 40},
+        "footer_variant": {"type": "enum", "values": ["logo_left_number_right", "logo_left_nextpage_corner", "minimal_number"]}
+      }
+    },
+    {
+      "id": "number_poster",
+      "description": "Dark bg, giant number + big words + orange circle accent.",
+      "template_html": "<div class=\"slide theme--dark\"><div style=\"display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center\"><div><div class=\"number-giant\" style=\"color:var(--accent)\">{{title}}</div><div class=\"headline\" style=\"font-size:72px\">Daily Habits</div></div><div style=\"display:flex;align-items:center;gap:16px\"><div class=\"photo-circle\" style=\"width:220px;height:220px\"><div style=\"font-weight:800;text-align:center;max-width:160px\">{{description}}</div></div></div></div><div class=\"corner-glyph corner-glyph--tr\" style=\"font-size:14px\">@reallygreatsite</div></div>",
+      "editable_overrides_schema": {
+        "headline_align": {"type": "enum", "values": ["left", "center"]},
+        "headline_max_w": {"type": "number", "min": 300, "max": 1000},
+        "headline_y": {"type": "number", "min": 0, "max": 400},
+        "subhead_max_w": {"type": "number", "min": 240, "max": 1000},
+        "subhead_y": {"type": "number", "min": 0, "max": 900},
+        "accent_style": {"type": "enum", "values": ["ellipse", "underline", "none"]},
+        "accent_word": {"type": "string", "max": 40},
+        "cta_text": {"type": "string", "max": 40},
+        "footer_variant": {"type": "enum", "values": ["logo_left_number_right", "logo_left_nextpage_corner", "minimal_number"]}
+      }
+    },
+    {
+      "id": "beige_minimal",
+      "description": "Beige bg, huge statement + small footnote + page number.",
+      "template_html": "<div class=\"slide theme--light\" style=\"background:var(--bg-beige);--headline-align:center;\"><div style=\"display:grid;place-items:center;text-align:center;gap:24px\"><div class=\"headline\" style=\"font-size:64px\">{{title}}</div><div class=\"subhead\" style=\"max-width:720px\">{{description}}</div><div style=\"font-size:14px;color:var(--accent)\">— Here are some that have proven to be powerful</div></div><div class=\"footer\"><div></div><div class=\"page\">{{page_number}}</div></div></div>",
+      "editable_overrides_schema": {
+        "headline_align": {"type": "enum", "values": ["left", "center"]},
+        "headline_max_w": {"type": "number", "min": 300, "max": 1000},
+        "headline_y": {"type": "number", "min": 0, "max": 400},
+        "subhead_max_w": {"type": "number", "min": 240, "max": 1000},
+        "subhead_y": {"type": "number", "min": 0, "max": 900},
+        "accent_style": {"type": "enum", "values": ["ellipse", "underline", "none"]},
+        "accent_word": {"type": "string", "max": 40},
+        "cta_text": {"type": "string", "max": 40},
+        "footer_variant": {"type": "enum", "values": ["logo_left_number_right", "logo_left_nextpage_corner", "minimal_number"]}
+      }
+    },
+    {
+      "id": "photo_diagonal",
+      "description": "Beige bg, photo cutout + orange shape; big left headline + small side note.",
+      "template_html": "<div class=\"slide theme--light\" style=\"background:var(--bg-beige);\"><div class=\"diagonal-shape\"></div><div class=\"photo-card\"><div><div class=\"headline\">{{title}}</div><div class=\"subhead\">{{description}}</div></div><div class=\"photo-circle\" style=\"background:#efefef;color:#111;\">Photo</div></div><div class=\"footer\"><div></div><div class=\"page\">{{page_number}}</div></div></div>",
+      "editable_overrides_schema": {
+        "headline_align": {"type": "enum", "values": ["left", "center"]},
+        "headline_max_w": {"type": "number", "min": 300, "max": 1000},
+        "headline_y": {"type": "number", "min": 0, "max": 400},
+        "subhead_max_w": {"type": "number", "min": 240, "max": 1000},
+        "subhead_y": {"type": "number", "min": 0, "max": 900},
+        "accent_style": {"type": "enum", "values": ["ellipse", "underline", "none"]},
+        "accent_word": {"type": "string", "max": 40},
+        "cta_text": {"type": "string", "max": 40},
+        "footer_variant": {"type": "enum", "values": ["logo_left_number_right", "logo_left_nextpage_corner", "minimal_number"]}
+      }
+    }
+  ],
+  "slide_defaults": {
+    "theme": "light|orange|dark",
+    "layout_id": "hero_left",
+    "overrides": {
+      "headline_align": "left|center",
+      "headline_max_w": 820,
+      "headline_y": 0,
+      "subhead_max_w": 680,
+      "subhead_y": 0,
+      "accent_style": "ellipse|underline|none",
+      "accent_word": "",
+      "cta_text": "",
+      "footer_variant": "logo_left_number_right",
+      "page_number": "",
+      "show_logo": true
+    }
+  },
+  "slides": [
+    {
+      "index": 1,
+      "layout_id": "hero_left",
+      "theme": "light",
+      "content": {
+        "title": "Here’s Why Posting Carousels Can <span class=\"accent accent--ellipse\">Boost</span> Your Content Game",
+        "description": "If you’re not using carousels yet… you might be missing out."
+      },
+      "overrides": {
+        "headline_align": "left",
+        "headline_max_w": 820,
+        "headline_y": 20,
+        "accent_style": "ellipse",
+        "accent_word": "Boost",
+        "cta_text": "Swipe to learn",
+        "footer_variant": "logo_left_number_right",
+        "page_number": "2040",
+        "show_logo": true
+      },
+      "html": "<div class=\"slide theme--light\" style=\"--headline-max-w:820px;--headline-y:20px;\"><div class=\"corner-glyph corner-glyph--tl\">✳︎</div><div><div class=\"headline\">Here’s Why Posting Carousels Can <span class=\"accent accent--ellipse\">Boost</span> Your Content Game</div><div class=\"subhead\">If you’re not using carousels yet… you might be missing out.</div><div style=\"margin-top:24px\"><span class=\"pill pill--outline\">Swipe to learn</span></div></div><div class=\"footer\"><div class=\"logo\"><span style=\"color:var(--accent);font-weight:900\">f</span><span>imberio</span></div><div class=\"page\">2040</div></div></div>"
+    },
+    {
+      "index": 2,
+      "layout_id": "dark_center",
+      "theme": "dark",
+      "content": {
+        "title": "Begin Your Day With Mindfulness",
+        "description": "Avoid checking your phone when you wake up."
+      },
+      "overrides": {
+        "headline_align": "center",
+        "headline_max_w": 880,
+        "cta_text": "",
+        "footer_variant": "logo_left_nextpage_corner",
+        "page_number": ""
+      },
+      "html": "<div class=\"slide theme--dark\" style=\"--headline-align:center;--headline-max-w:880px;\"><div class=\"corner-glyph corner-glyph--tl\" style=\"color:var(--accent)\">• • • • •</div><div style=\"display:grid;place-items:center;text-align:center;gap:18px\"><div class=\"headline\">Begin Your Day With Mindfulness</div><div class=\"subhead muted\">Avoid checking your phone when you wake up.</div><div class=\"photo-circle\" style=\"width:380px;height:380px;background:var(--accent)\">Flower</div></div><div class=\"nextpage\"><div class=\"arrow\">→</div><div>next page</div></div></div>"
+    },
+    {
+      "index": 3,
+      "layout_id": "number_poster",
+      "theme": "dark",
+      "content": {
+        "title": "5",
+        "description": "FOR BETTER MENTAL HEALTH"
+      },
+      "overrides": {
+        "headline_align": "left",
+        "headline_max_w": 720,
+        "page_number": ""
+      },
+      "html": "<div class=\"slide theme--dark\"><div style=\"display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center\"><div><div class=\"number-giant\" style=\"color:var(--accent)\">5</div><div class=\"headline\" style=\"font-size:72px\">Daily Habits</div></div><div style=\"display:flex;align-items:center;gap:16px\"><div class=\"photo-circle\" style=\"width:220px;height:220px\"><div style=\"font-weight:800;text-align:center;max-width:160px\">FOR BETTER MENTAL HEALTH</div></div></div></div><div class=\"corner-glyph corner-glyph--tr\" style=\"font-size:14px\">@reallygreatsite</div></div>"
+    },
+    {
+      "index": 4,
+      "layout_id": "light_quote_pill",
+      "theme": "light",
+      "content": {
+        "title": "Start with one habit first",
+        "description": "It doesn’t have to be perfect, the important thing is to be consistent"
+      },
+      "overrides": {
+        "headline_align": "left",
+        "headline_max_w": 760,
+        "cta_text": "Save & Share!",
+        "page_number": ""
+      },
+      "html": "<div class=\"slide theme--light\" style=\"--headline-max-w:760px;\"><div><div class=\"headline\">Start with one habit first</div><div style=\"margin-top:32px;max-width:680px\" class=\"line-frame\"><div class=\"subhead\">It doesn’t have to be perfect, the important thing is to be consistent</div></div></div><div class=\"footer\"><div class=\"pill pill--filled\">Save &amp; Share!</div><div class=\"page\"></div></div></div>"
+    },
+    {
+      "index": 5,
+      "layout_id": "photo_diagonal",
+      "theme": "light",
+      "content": {
+        "title": "Don’t Check Your Phone 30 Minutes After Waking Up",
+        "description": "Give your brain space to ‘wake up’ without overstimulation"
+      },
+      "overrides": {
+        "headline_align": "left",
+        "headline_max_w": 720,
+        "page_number": "03"
+      },
+      "html": "<div class=\"slide theme--light\" style=\"background:var(--bg-beige);\"><div class=\"diagonal-shape\"></div><div class=\"photo-card\"><div><div class=\"headline\">Don’t Check Your Phone 30 Minutes After Waking Up</div><div class=\"subhead\">Give your brain space to ‘wake up’ without overstimulation</div></div><div class=\"photo-circle\" style=\"background:#efefef;color:#111;\">Phone</div></div><div class=\"footer\"><div></div><div class=\"page\">03</div></div></div>"
+    },
+    {
+      "index": 6,
+      "layout_id": "card_center",
+      "theme": "orange",
+      "content": {
+        "title": "Ready to Try It?",
+        "description": "Start simple. Create 3–5 slides, focus on value, and post consistently."
+      },
+      "overrides": {
+        "headline_align": "center",
+        "cta_text": "Need help? Drop us a DM",
+        "page_number": ""
+      },
+      "html": "<div class=\"slide theme--orange\" style=\"--headline-align:center;\"><div style=\"display:flex;justify-content:space-between;font-size:14px\"><span>Need help?</span><span>Drop us a DM</span></div><div style=\"display:grid;place-items:center\"><div class=\"card\" style=\"max-width:720px;text-align:center\"><div class=\"headline\" style=\"font-size:56px\">Ready to Try It?</div><div class=\"subhead\">Start simple. Create 3–5 slides, focus on value, and post consistently.</div><div style=\"margin-top:20px\"><span class=\"pill pill--outline\">Need help? Drop us a DM</span></div></div></div><div class=\"footer\"><div class=\"corner-glyph\">✳︎</div><div class=\"corner-glyph\" style=\"margin-left:auto\">ɾ</div></div></div>"
+    },
+    {
+      "index": 7,
+      "layout_id": "orange_badges",
+      "theme": "orange",
+      "content": {
+        "title": "Small Habits",
+        "description": "That Secretly Change Your Life"
+      },
+      "overrides": {
+        "headline_align": "center",
+        "page_number": ""
+      },
+      "html": "<div class=\"slide theme--orange\" style=\"--headline-align:center;--headline-max-w:900px;\"><div style=\"display:grid;grid-template-columns:1fr 1fr;align-items:end\"><div class=\"line-frame\" style=\"height:360px\"></div><div><div class=\"headline\" style=\"font-size:84px\">Small Habits</div><div class=\"subhead\" style=\"font-weight:700;color:#111\">That Secretly Change Your Life</div></div></div><div class=\"footer\"><div></div><div></div></div></div>"
+    },
+    {
+      "index": 8,
+      "layout_id": "beige_minimal",
+      "theme": "light",
+      "content": {
+        "title": "You don’t need a big revolution to live a better life",
+        "description": "Just start with small habits that you can do today"
+      },
+      "overrides": {
+        "headline_align": "center",
+        "page_number": "00"
+      },
+      "html": "<div class=\"slide theme--light\" style=\"background:var(--bg-beige);--headline-align:center;\"><div style=\"display:grid;place-items:center;text-align:center;gap:24px\"><div class=\"headline\" style=\"font-size:64px\">You don’t need a big revolution to live a better life</div><div class=\"subhead\" style=\"max-width:720px\">Just start with small habits that you can do today</div><div style=\"font-size:14px;color:var(--accent)\">— Here are some that have proven to be powerful</div></div><div class=\"footer\"><div></div><div class=\"page\">00</div></div></div>"
+    },
+    {
+      "index": 9,
+      "layout_id": "photo_diagonal",
+      "theme": "light",
+      "content": {
+        "title": "Write Down 3 Things You Are Grateful For",
+        "description": "Gratitude exercises are scientifically proven to increase happiness and reduce stress"
+      },
+      "overrides": {
+        "headline_align": "left",
+        "page_number": "02"
+      },
+      "html": "<div class=\"slide theme--light\" style=\"background:var(--bg-beige);\"><div class=\"diagonal-shape\"></div><div class=\"photo-card\"><div><div class=\"headline\">Write Down 3 Things You Are Grateful For</div><div class=\"subhead\">Gratitude exercises are scientifically proven to increase happiness and reduce stress</div></div><div class=\"photo-circle\" style=\"background:#efefef;color:#111;\">Notebook</div></div><div class=\"footer\"><div></div><div class=\"page\">02</div></div></div>"
+    },
+    {
+      "index": 10,
+      "layout_id": "dark_center",
+      "theme": "dark",
+      "content": {
+        "title": "Break Down Ideas, Slide by Slide",
+        "description": "Carousels are perfect for sharing tips, steps, or stories without cluttering one single image. You keep it clean and clear."
+      },
+      "overrides": {
+        "headline_align": "center",
+        "page_number": ""
+      },
+      "html": "<div class=\"slide theme--dark\" style=\"--headline-align:center;--headline-max-w:900px;\"><div class=\"corner-glyph corner-glyph--tl\" style=\"color:var(--accent)\">✳︎</div><div class=\"corner-glyph corner-glyph--tr\">ɾ</div><div style=\"display:grid;place-items:center;text-align:center;gap:18px\"><div class=\"headline\">Break Down Ideas, Slide by Slide</div><div class=\"subhead muted\">Carousels are perfect for sharing tips, steps, or stories without cluttering one single image. You keep it clean and clear.</div></div><div class=\"nextpage\"><div class=\"arrow\">→</div><div>next page</div></div></div>"
+    }
+  ],
+  "warnings": [
+    "Exact font family and icon glyphs are approximations based on system fonts and available characters.",
+    "Photo elements are represented by placeholders; replace with actual images in production."
+  ]
+}
